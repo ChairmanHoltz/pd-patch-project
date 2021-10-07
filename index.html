@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/jquery.js"></script>
+    <script src="js/webpd-latest.js"></script>
+    <script src="js/pd-fileutils-latest.js"></script>
+    <script>
+      let patch;
+      $.get('patches/myPatch02.pd', function (patchStr) {
+        patch = Pd.loadPatch(patchStr);
+        // Pd.start();
+      });
+    </script>
+  </head>
+
+  <body>
+    <button class="start_btn">Start</button>
+    <button class="stop_btn">Stop</button>
+    <h1>
+      <div id="title">Random Pitches</div>
+    </h1>
+    <div id="svg"></div>
+    <script>
+      const startBtn = document.querySelector('.start_btn');
+      startBtn.addEventListener('click', () => Pd.start());
+
+      const stopBtn = document.querySelector('.stop_btn');
+      stopBtn.addEventListener('click', () => Pd.stop());
+
+      const renderPdFile = async function () {
+        const response = await fetch('./patches/myPatch02.pd');
+        const responseText = await response.text();
+        console.log(responseText);
+        const patchObjects = await pdfu.parse(responseText);
+        const rendered = await pdfu.renderSvg(patchObjects, { svgFile: false });
+        $('#svg').html(rendered);
+      };
+      renderPdFile();
+    </script>
+  </body>
+</html>

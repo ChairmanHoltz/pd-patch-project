@@ -1,0 +1,1 @@
+#N canvas 378 129 450 300 10;\n#X obj 180 258 dac~;\n#X obj 155 161 osc~ 300;\n#X obj 152 52 loadbang;\n#X obj 158 112 random 1000;\n#X obj 158 136 + 200;\n#X obj 187 220 *~ 0.2;\n#X obj 164 84 metro 500;\n#X connect 1 0 5 0;\n#X connect 2 0 6 0;\n#X connect 3 0 4 0;\n#X connect 4 0 1 0;\n#X connect 5 0 0 0;\n#X connect 5 0 0 1;\n#X connect 6 0 3 0;
