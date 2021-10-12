@@ -6,7 +6,7 @@
     <script src="js/pd-fileutils-latest.js"></script>
     <script>
       let patch;
-      $.get('patches/myPatch02.pd', function (patchStr) {
+      $.get('patches/test.pd', function (patchStr) {
         patch = Pd.loadPatch(patchStr);
         // Pd.start();
       });
@@ -28,7 +28,7 @@
       stopBtn.addEventListener('click', () => Pd.stop());
 
       const renderPdFile = async function () {
-        const response = await fetch('patches/myPatch02.pd');
+        const response = await fetch('patches/test.pd');
         const responseText = await response.text();
         console.log(responseText);
         const patchObjects = await pdfu.parse(responseText);
