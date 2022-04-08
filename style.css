@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+h1 {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+#svg {
+  grid-column: 2 / 3;
+}
+
+.main {
+  grid-column: 2 / 3;
+}
+
+.buttons {
+  float: left;
+  padding-left: 2em;
+  padding-top: 2em;
+}
